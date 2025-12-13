@@ -1,4 +1,4 @@
-# NYU-DTCC-VIP-Final-Project-2025-Fall-Isabelle Wang
+# NYU-DTCC-VIP-Final-Project-2025-Fall-Isabelle-Wang
 
 **NYU DTCC VIP Final Project - Fall 2025**  
 *Isabelle Wang*
@@ -18,8 +18,8 @@ Example: When you run `curl`, it loads OpenSSL and crypto libraries. Regular SBO
 brew install syft jq
 
 # Clone and setup
-git clone https://github.com/IsabelleQYWang/NYU-DTCC-VIP-Final-Project-2025-Fall-Isabelle.git
-cd NYU-DTCC-VIP-Final-Project-2025-Fall-Isabelle
+git clone https://github.com/IsabelleQYWang/NYU-DTCC-VIP-Final-Project-2025-Fall-Isabelle-Wang.git
+cd NYU-DTCC-VIP-Final-Project-2025-Fall-Isabelle-Wang
 chmod +x sbom-generator.sh
 ```
 
@@ -44,21 +44,28 @@ sudo ./sbom-generator.sh -t /usr/bin/curl -e -o results
 
 ## Example Output
 
-```json
+```javascript
 {
-  "artifacts": [...],
+  "artifacts": [],  // Packages found by Syft
   "dynamicDependencies": {
     "libraries": [
+      // List of all dynamic libraries found
       {
         "name": "libSystem.B.dylib",
         "path": "/usr/lib/libSystem.B.dylib",
+        "source": "otool"  // Found by static analysis
+      },
+      {
+        "name": "libncurses.5.4.dylib",
+        "path": "/usr/lib/libncurses.5.4.dylib",
         "source": "otool"
       }
+      // ... more libraries here
     ],
     "summary": {
-      "total": 3,
-      "static": 3,
-      "runtime": 0
+      "total": 3,      // Total libraries found
+      "static": 3,     // Found by otool
+      "runtime": 0     // Found by dtruss (if -e flag used)
     }
   }
 }
@@ -81,6 +88,7 @@ jq '.dynamicDependencies.summary' results/final-sbom.json
 macOS blocks `dtruss` from tracing system programs like `/usr/bin/curl`. This is a security feature. What works:
 - Static analysis with `otool` - always works
 - Runtime tracing on programs you compile yourself
+
 What does not work:
 - Runtime tracing on system binaries (blocked by SIP)
 
