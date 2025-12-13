@@ -1,0 +1,17 @@
+[
+  {
+    "name": "libutil.dylib",
+    "path": "/usr/lib/libutil.dylib",
+    "source": "otool"
+  },
+  {
+    "name": "libncurses.5.4.dylib",
+    "path": "/usr/lib/libncurses.5.4.dylib",
+    "source": "otool"
+  },
+  {
+    "name": "libSystem.B.dylib",
+    "path": "/usr/lib/libSystem.B.dylib",
+    "source": "otool"
+  }
+]
