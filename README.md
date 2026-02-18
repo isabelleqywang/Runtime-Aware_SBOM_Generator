@@ -1,6 +1,6 @@
-# NYU-DTCC-VIP-Final-Project-2025-Fall-Isabelle-Wang
+# Runtime-Aware SBOM Generator
 
-**NYU DTCC VIP Final Project - Fall 2025**  
+**NYU DTCC VIP Project - Fall 2025**  
 *Isabelle Wang*
 
 ## What This Does
