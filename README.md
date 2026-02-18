@@ -9,7 +9,7 @@ Normal SBOM tools like Syft only see what's in your code folder. They miss libra
 
 ## Why It Matters
 
-Example: When you run `curl`, it loads OpenSSL and crypto libraries. Regular SBOM tools don't catch this. For security, you need to know what *actually* runs, not just what's on disk.
+Example: When you run `curl`, it loads OpenSSL and crypto libraries. Regular SBOM tools don't catch this. For better security and accurate dependency tracking, it’s important to know what actually runs, not just what’s on disk.
 
 ## How to Install
 
